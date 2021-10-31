@@ -18,7 +18,6 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person o) {
-//        return nama.compareTo(o.nama);
         Integer absen = this.absen;
         Integer absenO = o.absen;
         return absen.compareTo(absenO);
@@ -44,8 +43,6 @@ public class Person implements Comparable<Person> {
         persons.add(new Person("Naufal", 23));
         persons.add(new Person("Mahing", 1));
         persons.add(new Person("Ahmad", 12));
-//        Comparator<Siswa> comparator = new Comparator<>():
-//        persons.sort(persons);
         Collections.sort(persons);
         persons.stream().map(s -> s.nama).forEach(System.out::print);
     }
