@@ -80,19 +80,6 @@ public class SiswaIPA extends JFrame {
                     return;
                 }
 
-//                if(math.getText().equals(""))
-//                    math.setText("0");
-//                if(bindo.getText().equals(""))
-//                    bindo.setText("0");
-//                if(bing.getText().equals(""))
-//                    bing.setText("0");
-//                if(fisika.getText().equals(""))
-//                    fisika.setText("0");
-//                if(kimia.getText().equals(""))
-//                    kimia.setText("0");
-//                if(biologi.getText().equals(""))
-//                    biologi.setText("0");
-
                 if(cekNilai()) {
                     JOptionPane.showMessageDialog(null, "Mohon masukkan siswa dengan nilai minimal 80");
                     return;
@@ -102,17 +89,7 @@ public class SiswaIPA extends JFrame {
                     JOptionPane.showMessageDialog(null, "Mohon masukkan nilai tidak melebihi 100");
                     return;
                 }
-
-//                row[0] = nama.getText();
-//                row[1] = nim.getText();
-//                row[2] = kelas.getText();
-//                row[3] = math.getText();
-//                row[4] = bindo.getText();
-//                row[5] = bing.getText();
-//                row[6] = fisika.getText();
-//                row[7] = kimia.getText();
-//                row[8] = biologi.getText();
-//                model.addRow(row);
+                
                 tambah();
                 JOptionPane.showMessageDialog(null, "Added Successfully");
                 clear();
@@ -146,19 +123,6 @@ public class SiswaIPA extends JFrame {
                         return;
                     }
 
-//                    if(math.getText().equals(""))
-//                        math.setText("0");
-//                    if(bindo.getText().equals(""))
-//                        bindo.setText("0");
-//                    if(bing.getText().equals(""))
-//                        bing.setText("0");
-//                    if(fisika.getText().equals(""))
-//                        fisika.setText("0");
-//                    if(kimia.getText().equals(""))
-//                        kimia.setText("0");
-//                    if(biologi.getText().equals(""))
-//                        biologi.setText("0");
-
                     if(isNilaiEmpty()) {
                         JOptionPane.showMessageDialog(null, "Mohon isi field nilai");
                         return;
@@ -177,15 +141,6 @@ public class SiswaIPA extends JFrame {
                             return;
                         }
 
-//                        model.setValueAt(nama.getText(), i, 0);
-//                        model.setValueAt(nim.getText(), i, 1);
-//                        model.setValueAt(kelas.getText(), i, 2);
-//                        model.setValueAt(math.getText(), i, 3);
-//                        model.setValueAt(bindo.getText(), i, 4);
-//                        model.setValueAt(bing.getText(), i, 5);
-//                        model.setValueAt(fisika.getText(), i, 6);
-//                        model.setValueAt(kimia.getText(), i, 7);
-//                        model.setValueAt(biologi.getText(), i, 8);
                         JOptionPane.showMessageDialog(null, "Updated succesfully");
                         updateFile();
                     } else {
@@ -220,7 +175,6 @@ public class SiswaIPA extends JFrame {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                deleteFile();
                 frame.dispose();
                 new Menu();
             }
@@ -246,11 +200,6 @@ public class SiswaIPA extends JFrame {
     }
 
     private void tambah() {
-//        Data.siswa.add(new IPA(nama.getText(), nim.getText(), kelas.getText(), Double.parseDouble(math.getText()),
-//                Double.parseDouble(bindo.getText()), Double.parseDouble(bing.getText()),
-//                Double.parseDouble(fisika.getText()), Double.parseDouble(kimia.getText()),
-//                Double.parseDouble(biologi.getText())));
-//        Data.sort();
 
         Data.siswa.add(new IPA(nama.getText(), nim.getText(), kelas.getText(), Double.parseDouble(math.getText()),
                 Double.parseDouble(bindo.getText()),
@@ -258,54 +207,10 @@ public class SiswaIPA extends JFrame {
                 Double.parseDouble(kimia.getText()), Double.parseDouble(biologi.getText())));
         writeToFile(Data.siswa); // write to file sudah ada sortnya
         display();
-
-//        File f = new File("Database.txt");
-//        try {
-//            PrintWriter pw = new PrintWriter(new FileOutputStream(f, true));
-//            pw.append(nama.getText()).append(",").append(nim.getText()).append(",").append(kelas.getText()).append(",").append(math.getText()).append("\n");
-//            pw.close();
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        Data.tampil();
     }
 
     private void display() {
-//        try {
-//            // terminal output
-////            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-////            String s = "";
-////            while((s = br.readLine()) != null) {
-////                String[] data = new String[4];
-////                data = s.split(",");
-////                for(int i = 0; i < 4; i++) {
-////                    System.out.print(data[i] + " ");
-////                    tabel.setValueAt(data[i], i, 0);
-////                }
-////                System.out.println();
-////            }
-//
-//            // jTable output
-//
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//                Object[] tableLines = br.lines().toArray();
-//                for(int i = 0; i < tableLines.length; i++) {
-//                    String[] dataRow = tableLines[i].toString().split(",");
-//                    IPA s = new IPA(dataRow[0], dataRow[1], dataRow[2], Double.parseDouble(dataRow[3]), 0, 0, 0, 0, 0);
-//                    if(Data.siswa.contains(s))
-//                        continue;
-//                    else
-//                        Data.siswa.add(s);
-//                    Data.sort();
-//                    model.addRow(dataRow);
-//                }
-//            Data.tampil();
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-
-        // display ganti menggunakan arraylist
-
+        // display menggunakan arraylist
         deleteRows();
         readFile(); // sudah sama sort
         for(Siswa s : Data.siswa) {
@@ -345,19 +250,6 @@ public class SiswaIPA extends JFrame {
 
     private void readFile() {
         try {
-            // terminal output
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//            String s = "";
-//            while((s = br.readLine()) != null) {
-//                String[] data = new String[4];
-//                data = s.split(",");
-//                for(int i = 0; i < 4; i++) {
-//                    System.out.print(data[i] + " ");
-//                    tabel.setValueAt(data[i], i, 0);
-//                }
-//                System.out.println();
-//            }
-
             // jTable output
             BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
             Object[] tableLines = br.lines().toArray();
@@ -381,15 +273,6 @@ public class SiswaIPA extends JFrame {
     private void updateFile() {
         IPA s = new IPA(nama.getText(), nim.getText(), "", 0, 0, 0, 0, 0, 0);
         if(Data.siswa.contains(s)) {
-            System.out.println("Mitsuketa!!");
-
-//            Data.siswa.get(Data.siswa.indexOf(s)).setNama(nama.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setNim(nim.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setKelas(kelas.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-
             IPA s1 = (IPA) Data.siswa.get(Data.siswa.indexOf(s));
             s1.setNama(nama.getText());
             s1.setNim(nim.getText());
@@ -406,29 +289,7 @@ public class SiswaIPA extends JFrame {
 
             writeToFile(Data.siswa); // sudah sama sort di awal method
         }
-
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//            String s = "";
-//            while()
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//            System.out.println(Arrays.toString(e.getStackTrace()));
-//        }
     }
-
-//    private void deleteFile() {
-//        try {
-//            File f = new File("Database.txt");
-//            PrintWriter pw = new PrintWriter(new FileOutputStream(f, f.delete()));
-//            pw.append("");
-//            pw.close();
-//            JOptionPane.showMessageDialog(null, "Deleted file successfully");
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//            JOptionPane.showMessageDialog(null, "Delete file failed");
-//        }
-//    }
 
     private void deleteRows() {
         for(int i = tabel.getRowCount() - 1; i >= 0; i--) {
@@ -464,8 +325,4 @@ public class SiswaIPA extends JFrame {
         return math.getText().equals("") || bindo.getText().equals("") || bing.getText().equals("") || fisika.getText()
                 .equals("") || kimia.getText().equals("") || biologi.getText().equals("");
     }
-
-//    public JPanel getMainPanel() {
-//        return mainPanel;
-//    }
 }
