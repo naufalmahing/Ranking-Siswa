@@ -80,19 +80,6 @@ public class SiswaIPS {
                     return;
                 }
 
-//                if(math.getText().equals(""))
-//                    math.setText("0");
-//                if(bindo.getText().equals(""))
-//                    bindo.setText("0");
-//                if(bing.getText().equals(""))
-//                    bing.setText("0");
-//                if(geografi.getText().equals(""))
-//                    geografi.setText("0");
-//                if(ekonomi.getText().equals(""))
-//                    ekonomi.setText("0");
-//                if(sosiologi.getText().equals(""))
-//                    sosiologi.setText("0");
-
                 if(cekNilai()) {
                     JOptionPane.showMessageDialog(null, "Mohon masukkan siswa dengan nilai minimal 80");
                     return;
@@ -102,17 +89,7 @@ public class SiswaIPS {
                     JOptionPane.showMessageDialog(null, "Mohon masukkan nilai tidak melebihi 100");
                     return;
                 }
-
-//                row[0] = nama.getText();
-//                row[1] = nim.getText();
-//                row[2] = kelas.getText();
-//                row[3] = math.getText();
-//                row[4] = bindo.getText();
-//                row[5] = bing.getText();
-//                row[6] = geografi.getText();
-//                row[7] = sosiologi.getText();
-//                row[8] = ekonomi.getText();
-//                model.addRow(row);
+                
                 tambah();
                 JOptionPane.showMessageDialog(null, "Added Successfully");
                 clear();
@@ -145,19 +122,6 @@ public class SiswaIPS {
                         JOptionPane.showMessageDialog(null, "Mohon isi nama, nim dan kelas");
                         return;
                     }
-
-//                    if(math.getText().equals(""))
-//                        math.setText("0");
-//                    if(bindo.getText().equals(""))
-//                        bindo.setText("0");
-//                    if(bing.getText().equals(""))
-//                        bing.setText("0");
-//                    if(geografi.getText().equals(""))
-//                        geografi.setText("0");
-//                    if(sosiologi.getText().equals(""))
-//                        sosiologi.setText("0");
-//                    if(ekonomi.getText().equals(""))
-//                        ekonomi.setText("0");
 
                     if(isNilaiEmpty()) {
                         JOptionPane.showMessageDialog(null, "Mohon isi field nilai");
@@ -220,7 +184,6 @@ public class SiswaIPS {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                deleteFile();
                 frame.dispose();
                 new Menu();
             }
@@ -246,66 +209,16 @@ public class SiswaIPS {
     }
 
     private void tambah() {
-//        Data.siswa.add(new IPA(nama.getText(), nim.getText(), kelas.getText(), Double.parseDouble(math.getText()),
-//                Double.parseDouble(bindo.getText()), Double.parseDouble(bing.getText()),
-//                Double.parseDouble(fisika.getText()), Double.parseDouble(kimia.getText()),
-//                Double.parseDouble(biologi.getText())));
-//        Data.sort();
-
         Data.siswa1.add(new IPS(nama.getText(), nim.getText(), kelas.getText(), Double.parseDouble(math.getText()),
                 Double.parseDouble(bindo.getText()),
                 Double.parseDouble(bing.getText()), Double.parseDouble(geografi.getText()),
                 Double.parseDouble(sosiologi.getText()), Double.parseDouble(ekonomi.getText())));
         writeToFile(Data.siswa1); // write to file sudah ada sortnya
         display();
-
-//        File f = new File("Database.txt");
-//        try {
-//            PrintWriter pw = new PrintWriter(new FileOutputStream(f, true));
-//            pw.append(nama.getText()).append(",").append(nim.getText()).append(",").append(kelas.getText()).append(",").append(math.getText()).append("\n");
-//            pw.close();
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        Data.tampil();
     }
 
     private void display() {
-//        try {
-//            // terminal output
-////            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-////            String s = "";
-////            while((s = br.readLine()) != null) {
-////                String[] data = new String[4];
-////                data = s.split(",");
-////                for(int i = 0; i < 4; i++) {
-////                    System.out.print(data[i] + " ");
-////                    tabel.setValueAt(data[i], i, 0);
-////                }
-////                System.out.println();
-////            }
-//
-//            // jTable output
-//
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//                Object[] tableLines = br.lines().toArray();
-//                for(int i = 0; i < tableLines.length; i++) {
-//                    String[] dataRow = tableLines[i].toString().split(",");
-//                    IPA s = new IPA(dataRow[0], dataRow[1], dataRow[2], Double.parseDouble(dataRow[3]), 0, 0, 0, 0, 0);
-//                    if(Data.siswa.contains(s))
-//                        continue;
-//                    else
-//                        Data.siswa.add(s);
-//                    Data.sort();
-//                    model.addRow(dataRow);
-//                }
-//            Data.tampil();
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-
         // display ganti menggunakan arraylist
-
         deleteRows();
         readFile(); // sudah sama sort
         for(Siswa s : Data.siswa1) {
@@ -347,19 +260,6 @@ public class SiswaIPS {
 
     private void readFile() {
         try {
-            // terminal output
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//            String s = "";
-//            while((s = br.readLine()) != null) {
-//                String[] data = new String[4];
-//                data = s.split(",");
-//                for(int i = 0; i < 4; i++) {
-//                    System.out.print(data[i] + " ");
-//                    tabel.setValueAt(data[i], i, 0);
-//                }
-//                System.out.println();
-//            }
-
             // jTable output
             BufferedReader br = new BufferedReader(new FileReader("Database1.txt"));
             Object[] tableLines = br.lines().toArray();
@@ -383,15 +283,6 @@ public class SiswaIPS {
     private void updateFile() {
         IPS s = new IPS(nama.getText(), nim.getText(), "", 0, 0, 0, 0, 0, 0);
         if(Data.siswa1.contains(s)) {
-            System.out.println("Mitsuketa!!");
-
-//            Data.siswa.get(Data.siswa.indexOf(s)).setNama(nama.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setNim(nim.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setKelas(kelas.getText());
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-//            Data.siswa.get(Data.siswa.indexOf(s)).setMath(Double.parseDouble(math.getText()));
-
             IPS s1 = (IPS) Data.siswa1.get(Data.siswa1.indexOf(s));
             s1.setNama(nama.getText());
             s1.setNim(nim.getText());
@@ -408,15 +299,6 @@ public class SiswaIPS {
 
             writeToFile(Data.siswa1); // sudah sama sort di awal method
         }
-
-//        try {
-//            BufferedReader br = new BufferedReader(new FileReader("Database.txt"));
-//            String s = "";
-//            while()
-//        } catch(Exception e) {
-//            System.out.println(e.getMessage());
-//            System.out.println(Arrays.toString(e.getStackTrace()));
-//        }
     }
 
     private void deleteFile() {
@@ -466,8 +348,4 @@ public class SiswaIPS {
         return math.getText().equals("") || bindo.getText().equals("") || bing.getText().equals("") || geografi.getText()
                 .equals("") || sosiologi.getText().equals("") || ekonomi.getText().equals("");
     }
-
-//    public JPanel getMainPanel() {
-//        return mainPanel;
-//    }
 }
