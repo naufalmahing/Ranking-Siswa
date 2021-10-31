@@ -13,12 +13,9 @@ public class Menu extends JFrame {
 
 
     public Menu() {
-//        Menu mainUI = new Menu();
-//        JPanel root = mainUI.getMainPanel();
         JFrame frame = new JFrame("Ranking Siswa");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(mainPanel);
-//        frame.pack();
         frame.setSize(400, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -26,7 +23,6 @@ public class Menu extends JFrame {
         IPAButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                setVisible(false);
                 frame.dispose();
                 new SiswaIPA();
             }
@@ -34,7 +30,6 @@ public class Menu extends JFrame {
         IPSButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                setVisible(false);
                 frame.dispose();
                 new SiswaIPS();
             }
@@ -42,13 +37,8 @@ public class Menu extends JFrame {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                frame.dispose();
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
     }
-
-//    public JPanel getMainPanel() {
-//        return mainPanel;
-//    }
 }
